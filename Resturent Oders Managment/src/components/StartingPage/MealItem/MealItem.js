@@ -1,9 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import classes from "./MealItem.module.css";
 const MealItem = (props) => {
+  const [color, setColor] = useState(false);
+  const colorChange = () => {
+    setColor(true);
+  };
   return (
     <>
-      <tr>
+      <tr className={color ? classes.td : classes.td1}>
         <td>{props.name}</td>
         <td>{props.street}</td>
         <td>{props.postalcode}</td>
@@ -11,18 +16,10 @@ const MealItem = (props) => {
         <td>{props.ItemName}</td>
         <td>{props.Quentity}</td>
         <td>
-        <center>
-          <select name="orders" id="status">
-            <option value="Received">Received</option>
-            <option value="InProgress">In Progress</option>
-            <option value="Complete">Complete</option>
-            <option value="Shipped">Shipped</option>
-          </select>
-          </center>
-        </td>
-        <td>
           <center>
-            <button>Submit</button>
+            <button className={classes.button} onClick={colorChange}>
+              Order Completed
+            </button>
           </center>
         </td>
       </tr>

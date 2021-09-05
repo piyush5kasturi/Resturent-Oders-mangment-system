@@ -84,7 +84,6 @@ const AvailableMeals = () => {
             <th>Item Name</th>
             <th>Quantity</th>
             <th>Status</th>
-            <th>Action</th>
           </tr>
           {melasList}
         </table>

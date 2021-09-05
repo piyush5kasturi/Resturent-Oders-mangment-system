@@ -2,6 +2,7 @@ import { useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import classes from "./ProfileForm.module.css";
+import swal from "sweetalert";
 
 const ProfileForm = () => {
   const history = useHistory();
@@ -24,8 +25,8 @@ const ProfileForm = () => {
       }
     ).then((res) => {
       //Always Succeeds!
-
-      history.replace("/");
+      swal("Good job!", "Password Changed", "success");
+      history.replace("/home");
     });
   };
   return (

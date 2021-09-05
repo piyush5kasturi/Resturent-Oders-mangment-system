@@ -11,10 +11,10 @@ const Header = (props) => {
   return (
     <React.Fragment>
       <header className={classes.header}>
-      <h1>ReactMeals</h1>
+      
       
         <Link to="/login">
-          <div className={classes.logo}>Admin</div>
+          <div className={classes.logo}><h1>ReactMeals</h1></div>
         </Link>
         <HeaderCartButton onClick={props.onShowCart} />
       </header>

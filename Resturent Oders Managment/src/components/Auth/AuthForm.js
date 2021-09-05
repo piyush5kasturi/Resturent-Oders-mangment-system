@@ -2,6 +2,7 @@ import { useState, useRef, useContext } from "react";
 import { useHistory } from "react-router";
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.css";
+import swal from "sweetalert";
 
 const AuthForm = () => {
   const history = useHistory();
@@ -51,10 +52,10 @@ const AuthForm = () => {
           return res.json();
         } else {
           return res.json().then((data) => {
-            let errorMessage = "Authentication failed!";
-            // if (data && data.error && data.error.message) {
-            //   errorMessage = data.error.message;
-            // }
+            let errorMessage = "";
+            if (data && data.error && data.error.message) {
+              errorMessage = data.error.message;
+            }
 
             throw new Error(errorMessage);
           });
@@ -68,7 +69,7 @@ const AuthForm = () => {
         history.replace("/home");
       })
       .catch((err) => {
-        alert(err.message);
+        swal( "",`${err}`, "error");
       });
   };
 

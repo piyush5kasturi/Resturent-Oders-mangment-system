@@ -7,7 +7,7 @@ const StartingPageContent = () => {
     
     <React.Fragment>
     <section className={classes.starting}>
-      <h1>Welcome on Board!</h1>
+      <h1>Orders List</h1>
     </section>
       <AvailableMeals />
     </React.Fragment>
