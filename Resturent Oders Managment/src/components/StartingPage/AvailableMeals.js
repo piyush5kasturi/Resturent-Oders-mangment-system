@@ -20,20 +20,23 @@ const AvailableMeals = () => {
         throw new Error("something went wrong");
       }
       const responseData = await response.json();
-
       const loadedMeals = [];
-
+      let item = [];
       for (const key in responseData) {
+        for (let i = 0; i < responseData[key].orderedItems.length; i++) {
+          item.push({ itemcol: responseData[key].orderedItems[i].name});
+        }
         loadedMeals.push({
           id: key,
           name: responseData[key].user.name,
           street: responseData[key].user.street,
           postalcode: responseData[key].user.postalCode,
           city: responseData[key].user.city,
-          ItemName: responseData[key].orderedItems[0].name,
+          ItemName: item.itemcol,
           Quentity: responseData[key].orderedItems[0].amount,
         });
       }
+
       setMeals(loadedMeals);
       setIsLoading(false);
     };
