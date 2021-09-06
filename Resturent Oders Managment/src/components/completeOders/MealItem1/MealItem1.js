@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import classes from "./MealItem.module.css";
+import classes from "./MealItem1.module.css";
 const MealItem = (props) => {
   const [color, setColor] = useState(false);
   const [status, setStatus] = useState(true);
@@ -46,7 +46,7 @@ const MealItem = (props) => {
 
   return (
     <>
-      {status && (
+      {!status && (
         <tr className={color ? classes.td : classes.td1}>
           <td>{props.name}</td>
           <td>{props.street}</td>
@@ -54,13 +54,6 @@ const MealItem = (props) => {
           <td>{props.city}</td>
           <td>{props.ItemName}</td>
           <td>{props.Quentity}</td>
-          <td>
-            <center>
-              <button className={classes.button} onClick={colorChange}>
-                Order Completed
-              </button>
-            </center>
-          </td>
         </tr>
       )}
     </>

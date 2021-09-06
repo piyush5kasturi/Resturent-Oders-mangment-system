@@ -13,7 +13,7 @@ const Header = (props) => {
       <header className={classes.header}>
       
       
-        <Link to="/login">
+        <Link to="/">
           <div className={classes.logo}><h1>ReactMeals</h1></div>
         </Link>
         <HeaderCartButton onClick={props.onShowCart} />

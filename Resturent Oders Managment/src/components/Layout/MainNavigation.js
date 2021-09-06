@@ -14,9 +14,12 @@ const MainNavigation = () => {
 
   return (
     <header className={classes.header}>
-   
-      <Link to="/">
-        <div className={classes.logo}><a onClick={logoutHandler}><h1>ReactMeals</h1></a> </div>
+      <Link to="/login">
+        <div className={classes.logo}>
+          <a onClick={logoutHandler}>
+            <h1>ReactMeals</h1>
+          </a>{" "}
+        </div>
       </Link>
       <nav>
         <ul>
@@ -27,7 +30,12 @@ const MainNavigation = () => {
           )}
           {isLoggedIn && (
             <li>
-              <Link to="/home">Order List</Link>
+              <Link to="/home">Pending Orders List</Link>
+            </li>
+          )}
+          {isLoggedIn && (
+            <li>
+              <Link to="/complete-orders">Completed Orders List</Link>
             </li>
           )}
           {isLoggedIn && (

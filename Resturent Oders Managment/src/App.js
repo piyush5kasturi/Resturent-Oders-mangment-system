@@ -7,6 +7,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import UserProfile from "./components/Profile/UserProfile";
 import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
+import StartingPageContent from "./components/completeOders/StartingPageContent1";
 import AuthContext from "./store/auth-context";
 
 function App() {
@@ -17,29 +18,34 @@ function App() {
       <Route exact path="/">
         <Main />
       </Route>
-      <Layout> 
-      <Switch>
-        <Route path="/login">
-          <AuthForm />
-        </Route>
-        {authCtx.isLoggedIn && (
-          <Route path="/home" exact>
-            <HomePage />
+      <Layout>
+        <Switch>
+          <Route path="/login">
+            <AuthForm />
           </Route>
-        )}
-        {!authCtx.isLoggedIn && (
-          <Route path="/auth">
-            <AuthPage />
+          {authCtx.isLoggedIn && (
+            <Route path="/home" exact>
+              <HomePage />
+            </Route>
+          )}
+          {authCtx.isLoggedIn && (
+            <Route path="/complete-orders" exact>
+              <StartingPageContent />
+            </Route>
+          )}
+          {!authCtx.isLoggedIn && (
+            <Route path="/auth">
+              <AuthPage />
+            </Route>
+          )}
+          {authCtx.isLoggedIn && (
+            <Route path="/profile">
+              <UserProfile />
+            </Route>
+          )}
+          <Route path="*">
+            <Redirect to="/login" />
           </Route>
-        )}
-        {authCtx.isLoggedIn && (
-          <Route path="/profile">
-            <UserProfile />
-          </Route>
-        )}
-        <Route path="*">
-          <Redirect to="/login" />
-        </Route>
         </Switch>
       </Layout>
     </Switch>

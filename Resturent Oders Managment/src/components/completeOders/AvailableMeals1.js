@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./AvailableMeal.module.css";
+import classes from "./AvailableMeal1.module.css";
 import Card from "../UI/Card";
-import MealItem from "./MealItem/MealItem";
+import MealItem from "./MealItem1/MealItem1";
 import { useEffect, useState } from "react";
 
 const AvailableMeals = () => {
@@ -92,7 +92,6 @@ const AvailableMeals = () => {
             <th>City</th>
             <th>Item Name</th>
             <th>Quantity</th>
-            <th>Status</th>
           </tr>
           {melasList}
         </table>
