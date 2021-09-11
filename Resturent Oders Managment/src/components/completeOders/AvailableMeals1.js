@@ -87,9 +87,9 @@ const AvailableMeals = () => {
         <table>
           <tr>
             <th>Name</th>
-            <th>Street</th>
-            <th>PostalCode</th>
-            <th>City</th>
+            <th>Class</th>
+            <th>Roll Number</th>
+            <th>Phone Number</th>
             <th>Item Name</th>
             <th>Quantity</th>
           </tr>

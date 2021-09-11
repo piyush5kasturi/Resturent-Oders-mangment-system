@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import classes from "./Checkout.module.css";
 
 const isEmpty = (value) => value.trim() === "";
-const isFiveChars = (value) => value.trim().length === 6;
+const isFiveChars = (value) => value.trim().length === 8;
 
 const Checkout = (props) => {
   const [formInputsValidity, setFormInputsValidity] = useState({
@@ -75,25 +75,25 @@ const Checkout = (props) => {
     <form className={classes.form} onSubmit={confirmHandler}>
       <div className={nameControlClasses}>
         <label htmlFor="name">Your Name</label>
-        <input type="text" id="name" ref={nameInputRef} />
+        <input type="text" id="name" ref={nameInputRef} placeholder="e.g- Piyush" />
         {!formInputsValidity.name && <p>Please enter a valid name!</p>}
       </div>
       <div className={streetControlClasses}>
-        <label htmlFor="street">Street</label>
-        <input type="text" id="street" ref={streetInputRef} />
-        {!formInputsValidity.street && <p>Please enter a valid street!</p>}
+        <label htmlFor="street">Class</label>
+        <input type="text" id="street" ref={streetInputRef} placeholder="e.g- B.tech CSE 5sem"/>
+        {!formInputsValidity.street && <p>Please enter a valid Class!</p>}
       </div>
       <div className={postalCodeControlClasses}>
-        <label htmlFor="postal">Postal Code</label>
-        <input type="text" id="postal" ref={postalCodeInputRef} />
+        <label htmlFor="postal">Roll Number</label>
+        <input type="number" id="postal" ref={postalCodeInputRef} placeholder="e.g- 12345678" />
         {!formInputsValidity.postalCode && (
-          <p>Please enter a valid postal code (6 characters long)!</p>
+          <p>Please enter a valid Roll Number!</p>
         )}
       </div>
       <div className={cityControlClasses}>
-        <label htmlFor="city">City</label>
-        <input type="text" id="city" ref={cityInputRef} />
-        {!formInputsValidity.city && <p>Please enter a valid city!</p>}
+        <label htmlFor="city">Phone Number</label>
+        <input type="number" id="city" ref={cityInputRef} placeholder="e.g- 1234567890" />
+        {!formInputsValidity.city && <p>Please enter a valid Phone Number!</p>}
       </div>
       <div className={classes.actions}>
         <button type="button" onClick={props.onCancel}>
